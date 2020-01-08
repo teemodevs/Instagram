@@ -1,12 +1,12 @@
 package com.copinstagram.instagram.board;
 
-import com.copinstagram.instagram.board.domain.Board;
+import com.copinstagram.instagram.board.model.entity.Board;
 import com.copinstagram.instagram.board.repository.BoardRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import java.time.ZonedDateTime;
+
 import java.util.List;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;

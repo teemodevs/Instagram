@@ -1,7 +1,6 @@
 package com.copinstagram.instagram.board.controller;
 
-import com.copinstagram.instagram.board.domain.Board;
-import com.copinstagram.instagram.board.domain.dto.BoardSaveRequestDto;
+import com.copinstagram.instagram.board.model.dto.BoardSaveRequestDto;
 import com.copinstagram.instagram.board.service.BoardService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
