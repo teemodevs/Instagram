@@ -13,14 +13,19 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class BoardController {
     private BoardService boardService;
-    @GetMapping("/board/{id}")
+    @GetMapping("/boards/{id}")
     public Board findById(@PathVariable("id")Long id){
         return boardService.findById(id);
     }
 
-    @PostMapping("/board")
+    @PostMapping("/boards")
     public void save(@RequestBody BoardSaveRequestDto boardRequest){
         boardService.save(boardRequest);
+    }
+
+    @PutMapping("/boards")
+    public void update(){
+        //...
     }
 
     @ExceptionHandler(NotFoundBoardException.class)
