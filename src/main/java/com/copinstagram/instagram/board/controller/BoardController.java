@@ -19,8 +19,8 @@ public class BoardController {
     }
 
     @PostMapping("/boards")
-    public void save(@RequestBody BoardSaveRequestDto boardRequest){
-        boardService.save(boardRequest);
+    public Long save(@RequestBody BoardSaveRequestDto boardRequest){
+        return boardService.save(boardRequest);
     }
 
     @PutMapping("/boards")

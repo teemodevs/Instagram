@@ -7,13 +7,16 @@ import com.copinstagram.instagram.board.repository.BoardRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 @AllArgsConstructor
 public class BoardServiceImpl implements BoardService{
     private BoardRepository boardRepository;
+    @Transactional
     @Override
-    public void save(BoardSaveRequestDto boardRequest) {
-        boardRepository.save(boardRequest.toEntity());
+    public Long save(BoardSaveRequestDto boardRequest) {
+        return boardRepository.save(boardRequest.toEntity()).getId();
     }
 
     @Override

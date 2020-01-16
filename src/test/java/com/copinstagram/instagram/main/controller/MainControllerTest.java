@@ -17,7 +17,6 @@ public class MainControllerTest {
     public void whenMainPageRequest_thenContainsMainPageTitle(){
         //when
         String body = this.testRestTemplate.getForObject("/", String.class);
-
         //then
         assertThat(body).contains("Copinstagram");
     }

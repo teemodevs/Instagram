@@ -47,7 +47,7 @@ public class BoardRepositoryTest {
                 .build());
         //then
         assertThat(readBoard.getAuthor(), is(givenBoard.getAuthor()));
-        assertThat(thenBoard.getContent(), is(givenBoard.getContent()));
+        assertThat(readBoard.getContent(), is(givenBoard.getContent()));
     }
     @Test
     public void givenIdIsNull_whenFindById_thenThrowIllegalArgumentException(){
