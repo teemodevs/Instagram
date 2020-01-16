@@ -7,3 +7,7 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+
+spring:
+  thymeleaf:
+    cache: false #개발중에 수정하면서 확인하는 용도로 캐시되지 않게 설정
