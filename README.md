@@ -11,6 +11,3 @@
 - kafka
 - Spring security
 - OAuth
-
-### front
-- spring-starter-thymeleaf
