@@ -11,3 +11,14 @@ logging:
 spring:
   thymeleaf:
     cache: false #개발중에 수정하면서 확인하는 용도로 캐시되지 않게 설정
+  profiles:
+    active: local # 기본 환경 선택
+
+# local 환경
+---
+spring:
+  profiles: local
+  datasource:
+    data: classpath:my-data.sql # 시작할때 실행시킬 script
+    initialization-mode: always
+    sql-script-encoding: UTF-8 # .sql 스크립트파일의 값을 실행할 때, 인코딩 반드시 해야함.

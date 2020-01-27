@@ -11,7 +11,7 @@ public class DataSourceConfig {
     public DataSource datasource() {
         return DataSourceBuilder.create()
                 .driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:mysql://localhost:3306/instagram?characterEncoding=UTF-8&serverTimezone=UTC")
+                .url("jdbc:mysql://localhost:3306/instagram?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC")
                 .username("root")
                 .password("root")
                 .build();
