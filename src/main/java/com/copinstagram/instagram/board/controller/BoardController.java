@@ -7,6 +7,7 @@ import com.copinstagram.instagram.board.model.dto.BoardSaveRequestDto;
 import com.copinstagram.instagram.board.model.entity.Board;
 import com.copinstagram.instagram.board.service.BoardService;
 import lombok.AllArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

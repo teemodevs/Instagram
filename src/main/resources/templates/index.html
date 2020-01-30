@@ -15,6 +15,27 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#savePostsModal">글 등록</button>
 </div>
 
+<!-- 목록 출력 영역 -->
+<table class="table table-horizontal table-bordered">
+    <thead class="thead-strong">
+    <tr>
+        <th>게시글번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>최종수정일</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    <tr th:each="board : ${boards}">
+        <td th:text="${board.id}"></td>
+        <td th:text="${board.author}"></td>
+        <td th:text="${board.content}"></td>
+        <td th:text="${board.modifiedDate}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- modal 영역 -->
 <div class="modal fade" id="savePostsModal" tabindex="-1" role="dialog" aria-labelledby="savePostsLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
