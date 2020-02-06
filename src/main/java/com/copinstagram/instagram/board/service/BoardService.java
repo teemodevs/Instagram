@@ -10,4 +10,5 @@ public interface BoardService {
     public List<BoardsMainResponseDto> findAllDesc();
     public Long save(BoardSaveRequestDto boardRequest);
     public Board findById(Long id);
+
 }
