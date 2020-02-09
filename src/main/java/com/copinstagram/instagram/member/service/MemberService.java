@@ -2,12 +2,11 @@ package com.copinstagram.instagram.member.service;
 
 import com.copinstagram.instagram.member.model.dto.MemberDto;
 import com.copinstagram.instagram.member.model.Role;
-import com.copinstagram.instagram.member.model.entity.Member;
+import com.copinstagram.instagram.member.model.entity.User;
 import com.copinstagram.instagram.member.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,8 +34,8 @@ public class MemberService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
-        Optional<Member> userEntityWrapper = memberRepository.findByEmail(userEmail);
-        Member userEntity = userEntityWrapper.get();
+        Optional<User> userEntityWrapper = memberRepository.findByEmail(userEmail);
+        User userEntity = userEntityWrapper.get();
 
         List<GrantedAuthority> authorities = new ArrayList<>();
 
@@ -46,6 +45,6 @@ public class MemberService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(Role.MEMBER.getValue()));
         }
 
-        return new User(userEntity.getEmail(), userEntity.getPassword(), authorities);
+        return new org.springframework.security.core.userdetails.User(userEntity.getEmail(), userEntity.getPassword(), authorities);
     }
 }

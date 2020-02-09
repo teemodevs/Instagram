@@ -1,7 +1,6 @@
 package com.copinstagram.instagram.member.model.dto;
 
-import com.copinstagram.instagram.board.model.entity.BaseTimeEntity;
-import com.copinstagram.instagram.member.model.entity.Member;
+import com.copinstagram.instagram.member.model.entity.User;
 import lombok.*;
 
 @Getter
@@ -12,9 +11,8 @@ public class MemberDto {
     private String email;
     private String password;
 
-
-    public Member toEntity(){
-        return Member.builder()
+    public User toEntity(){
+        return User.builder()
                 .email(email)
                 .password(password)
                 .build();
