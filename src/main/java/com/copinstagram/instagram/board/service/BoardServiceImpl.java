@@ -2,6 +2,7 @@ package com.copinstagram.instagram.board.service;
 
 import com.copinstagram.instagram.board.exception.NotFoundBoardException;
 import com.copinstagram.instagram.board.model.dto.BoardSaveRequestDto;
+import com.copinstagram.instagram.board.model.dto.BoardUpdateRequestDto;
 import com.copinstagram.instagram.board.model.dto.BoardsMainResponseDto;
 import com.copinstagram.instagram.board.model.entity.Board;
 import com.copinstagram.instagram.board.repository.BoardRepository;
@@ -18,8 +19,8 @@ public class BoardServiceImpl implements BoardService{
     private BoardRepository boardRepository;
     @Transactional
     @Override
-    public Long save(BoardSaveRequestDto boardRequest) {
-        return boardRepository.save(boardRequest.toEntity()).getId();
+    public Long save(BoardSaveRequestDto boardSaveRequestDto) {
+        return boardRepository.save(boardSaveRequestDto.toEntity()).getId();
     }
 
     @Override
@@ -32,5 +33,12 @@ public class BoardServiceImpl implements BoardService{
         return boardRepository.findAllDesc()
                 .map(BoardsMainResponseDto::new)
                 .collect(Collectors.toList());
+    }
+    public void update(Long id, BoardUpdateRequestDto boardUpdate){
+        Board board = boardRepository.findById(id).orElseThrow(NotFoundBoardException::new);
+        board.updateMyAccount(boardUpdate);
+    }
+    public void deleteById(Long id){
+        boardRepository.deleteById(id);
     }
 }
