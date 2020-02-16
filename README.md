@@ -11,3 +11,5 @@
 - kafka
 - Spring security
 - OAuth
+
+세미나 공부를 위한 일시중지 (0125)
