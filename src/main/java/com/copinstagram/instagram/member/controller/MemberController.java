@@ -1,6 +1,6 @@
 package com.copinstagram.instagram.member.controller;
 
-import com.copinstagram.instagram.member.model.dto.MemberDto;
+import com.copinstagram.instagram.member.model.dto.MemberSignUpRequestDto;
 import com.copinstagram.instagram.member.service.MemberService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -20,9 +20,8 @@ public class MemberController {
 
     // 회원가입 처리
     @PostMapping("/user/signup")
-    public String execSignup(MemberDto memberDto) {
-        memberService.joinUser(memberDto);
-
+    public String execSignup(MemberSignUpRequestDto memberSignUpRequestDto) {
+        memberService.joinUser(memberSignUpRequestDto);
         return "redirect:/user/login";
     }
 

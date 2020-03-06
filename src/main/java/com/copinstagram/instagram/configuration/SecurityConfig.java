@@ -2,9 +2,13 @@ package com.copinstagram.instagram.configuration;
 
 import com.copinstagram.instagram.member.service.MemberService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.ReactiveGeoCommands;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configurers.userdetails.DaoAuthenticationConfigurer;
 import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -18,7 +22,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private MemberService memberService;
+    //@Autowired
+    //private MemberService memberService;
+    private AuthenticationProvider CustomAuthenticationProvider;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -56,6 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
+        //auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
+        auth.authenticationProvider(CustomAuthenticationProvider);
     }
 }
